@@ -1,0 +1,22 @@
+<!ELEMENT Configuration (Appenders,Loggers)>
+<!ATTLIST Configuration status NMTOKEN #REQUIRED>
+<!ELEMENT Appenders (Console,File)>
+<!ELEMENT Console (PatternLayout)>
+<!ATTLIST Console name NMTOKEN #REQUIRED>
+<!ATTLIST Console target NMTOKEN #REQUIRED>
+<!ELEMENT PatternLayout (Pattern?)>
+<!ATTLIST PatternLayout pattern CDATA #IMPLIED>
+<!ELEMENT File (PatternLayout)>
+<!ATTLIST File name NMTOKEN #REQUIRED>
+<!ATTLIST File fileName CDATA #REQUIRED>
+<!ATTLIST File append NMTOKEN #REQUIRED>
+<!ELEMENT Pattern (#PCDATA)>
+<!ELEMENT Loggers (Logger,Root)>
+<!ELEMENT Logger (AppenderRef)>
+<!ATTLIST Logger name NMTOKEN #REQUIRED>
+<!ATTLIST Logger level NMTOKEN #REQUIRED>
+<!ATTLIST Logger additivity NMTOKEN #REQUIRED>
+<!ELEMENT AppenderRef EMPTY>
+<!ATTLIST AppenderRef ref NMTOKEN #REQUIRED>
+<!ELEMENT Root (AppenderRef)>
+<!ATTLIST Root level NMTOKEN #REQUIRED>
